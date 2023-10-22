@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gitar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+
+        let audioC = new Audio();
+        audioC.src = "audio/C.mp3";
+
+        let audioAM = new Audio();
+        audioAM.src = "audio/AM.mp3";
+
+        let audioDM = new Audio();
+        audioDM.src = "audio/DM.mp3";
+
+        let audioG = new Audio();
+        audioG.src = "audio/G.mp3";
+
+        let audioF = new Audio();
+        audioF.src = "audio/F.mp3";
+    </script>
+
+</head>
+<body class="bg-blue-200 flex items-center ms-7 cursor-pointer h-screen">
+    <div class="bg-yellow-700 rounded-xl w-64 h-64 items-center justify-center flex ml-40" id="gitar">
+        <div class="bg-gray-300 border-black border-5 rounded-full w-36 h-36"></div>
+        <div onclick="Playgitar('C')" class="text-white bg-black absolute flex top-[246px] w-[856px] left-[107px] h-2.5 ml-40">C</div>
+        <div onclick="Playgitar('AM')" class="text-white bg-black absolute flex top-[270px] w-[874px] left-[90px] h-2.5 ml-40">AM</div>
+        <div onclick="Playgitar('DM')" class="text-white bg-black absolute flex top-[295px] w-[873px] left-[91px] h-2.5 ml-40">DM</div>
+        <div onclick="Playgitar('G')" class="text-white bg-black absolute flex top-[320px] w-[874px] left-[90px] h-2.5 ml-40">G</div>
+        <div onclick="Playgitar('F')" class="text-white bg-black absolute flex top-[345px] w-[854px] left-[110px] h-2.5 ml-40">F</div>
+    </div>
+    <div class="bg-yellow-800 rounded-xl h-40 w-20 ml-[600px]"></div>
+    
+    <script>
+    
+
+        function Playgitar(chord) {
+            switch(chord) {
+                case 'C':
+                    audioC.load();
+                    audioC.pause();
+                    audioC.play();
+                    break;
+                case 'AM':
+                    audioAM.load();
+                    audioAM.pause();
+                    audioAM.play();
+                    break;
+                case 'DM':
+                    audioDM.load();
+                    audioDM.pause();
+                    audioDM.play();
+                    break;
+                case 'G':
+                    audioG.load();
+                    audioG.pause();
+                    audioG.play();
+                    break;
+                case 'F':
+                    audioF.load();
+                    audioF.pause();
+                    audioF.play();
+                    break;
+            }
+        }
+
+        document.addEventListener("keypress", function(event) {
+            switch(event.key) {
+                case "a":
+                    Playgitar("C");
+                    break;
+                case "s":
+                    Playgitar("AM");
+                    break;
+                case "d":
+                    Playgitar("DM");
+                    break;
+                case "f":
+                    Playgitar("G");
+                    break;
+                case "g":
+                    Playgitar("F");
+                    break;
+            }
+        });
+    </script>
+</body>
+</html>

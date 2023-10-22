@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piano</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        let audiodo = new Audio();
+        audiodo.src = "audio/do.mp3";
+
+        let audiore = new Audio();
+        audiore.src = "audio/re.mp3";
+
+        let audiomi = new Audio();
+        audiomi.src = "audio/mi.mp3";
+
+        let audiofa = new Audio();
+        audiofa.src = "audio/fa.mp3";
+
+        let audioso = new Audio();
+        audioso.src = "audio/so.mp3";
+
+        let audiola = new Audio();
+        audiola.src = "audio/la.mp3";
+
+        let audiosi = new Audio();
+        audiosi.src = "audio/si.mp3";
+
+        let audioD0 = new Audio();
+        audioD0.src = "audio/D0.mp3";
+    </script>
+
+</head>
+<body>
+    <div class="badan">
+    <div class="piano">
+        <button class="putih" onclick="Playpiano('do')"><br>do</button>
+        <button class="hitam" onclick="Playpiano('')"></button>
+        <button class="putih" onclick="Playpiano('re')"><br>re</button>
+        <button class="hitam" onclick="Playpiano('')"></button>
+        <button class="putih" onclick="Playpiano('mi')"><br>mi</button>
+        <button class="hitam" onclick="Playpiano('')"></button>
+        <button class="putih" onclick="Playpiano('fa')"><br>fa</button>
+        <button class="putih" onclick="Playpiano('so')"><br>so</button>
+        <button class="hitam" onclick="Playpiano('')"></button>
+        <button class="putih" onclick="Playpiano('la')"><br>la</button>
+        <button class="hitam" onclick="Playpiano('')"></button>
+        <button class="putih" onclick="Playpiano('si')"><br>si</button>
+        <button class="putih" onclick="Playpiano('D0')"><br>D0</button>
+    </div>
+    </div>
+
+    <script>
+        let badan = document.getElementsByClassName('badan');
+        // Ulangi kumpulan elemen dengan kelas 'badan' dan tambahkan kelas ke setiap elemen.
+        for (let i = 0; i < badan.length; i++) {
+            badan[i].classList.add('flex', 'm-0', 'p-0', 'h-screen', 'justify-center', 'items-center', 'bg-gray-500');
+        }
+
+      let pianos = document.getElementsByClassName('piano'); // Mengambil semua elemen dengan kelas 'piano'
+      // Iterasi melalui koleksi elemen 'piano' dan menambahkan kelas pada masing-masing elemen.
+        for (let i = 0; i < pianos.length; i++) {
+          pianos[i].classList.add('flex', 'relative');
+        }
+
+      let hitam_children = document.getElementsByClassName('hitam');
+        for (let i = 0; i < hitam_children.length; i++) {
+            hitam_children[i].classList.add('w-8', 'h-32', 'bg-black', 'm-0', '-mx-4', '-z-0','text-white','hover:bg-yellow-500');
+        }
+        
+      let putih_children = document.getElementsByClassName('putih');
+        for (let i = 0; i < putih_children.length; i++) {
+            putih_children[i].classList.add('text-xl', 'w-14', 'h-52', 'border', 'hover:bg-blue-400', 'active:bg-blue-400', 'bg-white');
+        }
+        
+
+        function Playpiano(not) {
+            switch(not) {
+                case 'do':
+                    audiodo.load();
+                    audiodo.pause();
+                    audiodo.play();
+                    break;
+                case 're':
+                    audiore.load();
+                    audiore.pause();
+                    audiore.play();
+                    break;
+                case 'mi':
+                    audiomi.load();
+                    audiomi.pause();
+                    audiomi.play();
+                    break;
+                case 'fa':
+                    audiofa.load();
+                    audiofa.pause();
+                    audiofa.play();
+                    break;
+                case 'so':
+                    audioso.load();
+                    audioso.pause();
+                    audioso.play();
+                    break;
+                case 'la':
+                    audiola.load();
+                    audiola.pause();
+                    audiola.play();
+                    break;
+                case 'si':
+                    audiosi.load();
+                    audiosi.pause();
+                    audiosi.play();
+                    break;
+                case 'D0':
+                    audioD0.load();
+                    audioD0.pause();
+                    audioD0.play();
+                    break;
+            }
+        }
+
+        document.addEventListener("keypress", function(event) {
+            switch(event.key) {
+                case "q":
+                    Playpiano("do");
+                    break;
+                case "w":
+                    Playpiano("re");
+                    break;
+                case "e":
+                    Playpiano("mi");
+                    break;
+                case "r":
+                    Playpiano("fa");
+                    break;
+                case "t":
+                    Playpiano("so");
+                    break;
+                case "y":
+                    Playpiano("la");
+                    break;
+                case "u":
+                    Playpiano("si");
+                    break;
+                case "i":
+                    Playpiano("D0");
+                    break;
+            }
+        });
+    </script>
+</body>
+</html>

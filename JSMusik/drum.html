@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drum</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        let kick = new Audio();
+        kick.src = "audio/kick.mp3";
+
+        let crash = new Audio();
+        crash.src = "audio/crash.mp3";
+
+        let floortom = new Audio();
+        floortom.src = "audio/floortom.mp3";
+
+        let hihat = new Audio();
+        hihat.src = "audio/hihat.mp3";
+
+        let simbal = new Audio();
+        simbal.src = "audio/simbal.mp3";
+
+        let snare = new Audio();
+        snare.src = "audio/snare.mp3";
+
+        let tom = new Audio();
+        tom.src = "audio/tom.mp3";
+
+        let hihatfoot = new Audio();
+        hihatfoot.src = "audio/hihatfoot.mp3";
+
+    </script>
+</head>
+<body class="bg-blue-300 justify-center items-center flex h-screen">
+
+        <div class="absolute flex">
+            <div class="bg-blue-400 text-white rounded-full w-28 h-28 mt-16 justify-center outline-black outline -outline-offset-8 items-center flex text-yellow font-bold cursor-pointer z-20 active:scale-90" onclick="play('snare')">Snare</div>
+            <div class="bg-blue-400 text-white rounded-full w-28 h-28 mb-52 justify-center outline-black outline -outline-offset-8 items-center flex text-yellow font-bold cursor-pointer z-20 active:scale-90" onclick="play('tom')">Tom</div>
+            <div class="bg-blue-400 text-white rounded-full w-28 h-28 mt-16 justify-center outline-black outline -outline-offset-8 items-center flex text-yellow font-bold cursor-pointer z-20 active:scale-90" onclick="play('floortom')">Floor Tom</div>
+        </div>
+        <div class="bg-white rounded-full absolute w-48 h-48 justify-center outline-black outline -outline-offset-8 items-center flex text-black font-bold cursor-pointer active:scale-90 z-10" onclick="play('kick')">Kick</div>
+        <div class="bg-gray-600 absolute rounded-full w-36 h-36 mr-[420px] mb-52 justify-center outline-white outline -outline-offset-8 items-center flex font-bold text-white cursor-pointer active:scale-90" onclick="play('hihat')">Hihat</div>
+        <div class="bg-gray-600 absolute rounded-full w-36 h-36 ml-[420px] mb-52 justify-center outline-white outline -outline-offset-8 items-center flex font-bold cursor-pointer active:scale-90 text-white" onclick="play('hihatfoot')">Hihat Foot</div>
+        <div class="bg-gray-600 absolute rounded-full w-44 h-44 mb-[340px] ml-[150px] justify-center outline-white outline -outline-offset-8 items-center flex text-white font-bold cursor-pointer active:scale-90" onclick="play('simbal')">Simbal</div>
+        <div class="bg-gray-600 absolute rounded-full w-44 h-44 mb-[340px] mr-[150px] justify-center outline-white outline -outline-offset-8 items-center flex text-white font-bold cursor-pointer active:scale-90" onclick="play('crash')">Crash</div>
+
+        <script>
+            function play(chord){
+            switch (chord) {
+                case "snare":
+                    snare.load(); 
+                    snare.play(); 
+                    break;
+                
+                case "tom":
+                    tom.load(); 
+                    tom.play();
+                     break;
+
+                case "floortom":
+                    floortom.load(); 
+                    floortom.play(); 
+                    break;
+
+                case "kick":
+                    kick.load(); 
+                    kick.play();
+                     break;
+                case "hihat":
+                    hihat.load(); 
+                    hihat.play();
+                     break;
+
+                case "hihatfoot":
+                    hihatfoot.load();
+                    hihatfoot.play(); 
+                    break;
+
+                case "simbal":
+                    simbal.load(); 
+                    simbal.play();
+                     break;
+
+                case "crash":
+                    crash.load(); 
+                    crash.play();
+                     break;
+            }
+        }
+
+        document.addEventListener("keypress", function(){
+            switch(event.key){
+                case "z": play("snare")
+                    break;
+                case "x": play("tom")
+                    break;
+                case "c": play("floortom")
+                    break;
+                case "v": play("kick")
+                    break;
+                case "b": play("hihat")
+                    break;
+                case "n": play("hihatfoot")
+                    break;
+                case "m": play("simbal")
+                    break;
+                case ",": play("crash")
+                    break;
+            }
+        })
+        </script>
+</body>
+</html>
